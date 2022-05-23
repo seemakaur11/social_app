@@ -1,0 +1,6 @@
+{
+  "mongoURI": "mongodb+srv://user123:user123@gillconnector.ot4f5.mongodb.net/?retryWrites=true&w=majority",
+  "jwtSecret": "mysecrettoken",
+  "githubClientId": "4e9ecada04a5101d849d",
+  "githubSecret": "c7ff5618a713540d6e4a819a2b82769508cb0a1c"
+}
