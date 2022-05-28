@@ -13,6 +13,8 @@ export const getCurrentProfile = () => async (dispatch) => {
             payload: res.data,
         });
     } catch (err) {
+        // Add this
+        dispatch({ type: CLEAR_PROFILE });
         dispatch({
             type: PROFILE_ERROR,
             payload: {
@@ -28,7 +30,7 @@ export const getProfiles = () => async (dispatch) => {
     dispatch({ type: CLEAR_PROFILE });
     try {
         const res = await axios.get('/api/profile');
-        console.log(" alll +++++++", res.data)
+
         dispatch({
             type: GET_PROFILES,
             payload: res.data,
@@ -46,7 +48,6 @@ export const getProfiles = () => async (dispatch) => {
 
 //get profile by ID 
 export const getProfileById = (userId) => async (dispatch) => {
-    dispatch({ type: CLEAR_PROFILE })
     try {
         const res = await axios.get(`/api/profile/user/${userId}`);
 
@@ -67,7 +68,6 @@ export const getProfileById = (userId) => async (dispatch) => {
 
 //Get github repos
 export const getGithubRepos = (username) => async (dispatch) => {
-    dispatch({ type: CLEAR_PROFILE })
     try {
         const res = await axios.get(`/api/profile/github/${username}`);
 
@@ -85,7 +85,6 @@ export const getGithubRepos = (username) => async (dispatch) => {
         });
     }
 };
-
 //create or update profile
 export const createProfile = (formData, history, edit = false) => async (dispatch) => {
 
