@@ -7,8 +7,8 @@ import Alert from '../layout/Alert';
 
 
 const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentProfile }) => {
+    const navigate = useNavigate();
 
-    const navigate = useNavigate()
     const [formData, setFormData] = useState({
         company: '',
         website: '',
@@ -45,7 +45,7 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
             instagram:
                 loading || !profile.social ? '' : profile.social.instagram,
         });
-    }, [loading])
+    }, [loading, getCurrentProfile])
     const {
         company,
         website,
@@ -67,7 +67,8 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
     const onSubmit = (e) => {
         e.preventDefault();
         createProfile(formData, true);
-        // navigate('/dashboard')
+        navigate('/dashboard')
+
     };
     return (
 
