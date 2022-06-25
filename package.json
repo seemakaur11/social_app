@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
-    "build": "babel src -d lib"
+    "build": "put build command here"
   },
   "author": "seema",
   "license": "ISC",
